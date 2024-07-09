@@ -55,6 +55,7 @@ public class ShopRequestPKT implements ITNPacket {
                         shopMenu.shopInventory.removeResourcePoints(BigInteger.valueOf(ResourcePointHelper.getRPBuyCost(this.stack) * newDecrement));
 
                         ItemStack extracted = handler.extractItem(i, (int) newDecrement, false);
+                        handler.insertItem(i, extracted, false);
                         if (this.shift){
                             ItemHandlerHelper.giveItemToPlayer(player, extracted);
                         } else {
